@@ -1,0 +1,10 @@
+FROM resin/%%RESIN_MACHINE_NAME%%-python
+MAINTAINER @ashmastaflash
+
+COPY requirements.txt /requirements.txt
+RUN pip install -r requirements.txt
+
+COPY app/ /app/
+WORKDIR /app
+CMD ["python", "runner.py"]
+
