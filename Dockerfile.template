@@ -1,10 +1,20 @@
-FROM resin/%%RESIN_MACHINE_NAME%%-python
+FROM resin/%%RESIN_MACHINE_NAME%%-debian:jessie
 MAINTAINER @ashmastaflash
+
+
+RUN apt-get update && apt-get install \
+    gnupg \
+    motion \
+    python-pip
+
+
 
 COPY requirements.txt /requirements.txt
 RUN pip install -r requirements.txt
 
 COPY app/ /app/
-WORKDIR /app
-CMD ["python", "runner.py"]
+COPY configs/motion.conf /etc/motion/motion.conf
 
+WORKDIR /app
+ENTRYPOINT ["python", "runner.py"]
+CMD []
