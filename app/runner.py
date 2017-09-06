@@ -30,6 +30,8 @@ def main():
                                    name="video_shipper")
     vid_shipper.daemon = True
     vid_shipper.start()
+    modprober1 = subprocess.Popen(["modprobe", "bcm2835-v4l2"])
+    modprober2 = subprocess.Popen(["modprobe", "v4l2_common"])
     motion_process = subprocess.Popen("/usr/bin/motion")
     motion_pid = motion_process.pid
 
