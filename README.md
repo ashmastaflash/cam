@@ -38,6 +38,7 @@ fine with the Pi camera module.  It expects the camera to be at `/dev/video0`.
 | GPG_PUBKEYS                   | Base-64 encoded pubkey from gpg export       |
 | RECIPIENTS                    | Recipients (semicolon-separated) for pubkeys |
 | S3_BUCKET                     | Name of S3 bucket to drop captures in        |
+| USE_PI_CAMERA                 | If set, attempt to init onboard pi camera.   |
 
 ### Getting a Public Key from GPG/Keybase
 
